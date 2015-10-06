@@ -1,12 +1,12 @@
-var gulp = require('gulp');
-var insert = require('gulp-insert');
-var path = require('path');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var jade = require('gulp-jade');
+const gulp = require('gulp');
+const insert = require('gulp-insert');
+const path = require('path');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const jade = require('gulp-jade');
 
-var through = require('through2');
-var nodemon = require('gulp-nodemon');
+const through = require('through2');
+const nodemon = require('gulp-nodemon');
 gulp.task('sass', function() {
     return gulp.src('app/frontend/scss/**/*.scss')
         .pipe(sass())
@@ -51,7 +51,7 @@ gulp.task('watch', function() {
 });
 
 // Dev start
-gulp.task('default', ['sass', 'libs', 'jade_client_compilation', 'scripts', 'watch', 'dev']);
+gulp.task('default', ['sass', 'libs', 'jade_client_compilation', 'scripts', 'watch']);
 
 //Jade client templates binding
 function modify() {
