@@ -34,12 +34,8 @@ gulp.task('jade_client_compilation', function() {
         .pipe(gulp.dest('app/frontend/js/'))
 });
 
-gulp.task('jade_client_includes', ['jade_client_compilation'], function() {
-    gulp.src('app/backend/templates/cl_*.jade')
-});
-
 //dev watcher
-gulp.task('run', function () {
+gulp.task('dev', function () {
     nodemon({ script: 'app/backend/main.js', ext: 'js', ignore: ['static/*', 'frontend/*', 'gulpfile.js'] })
         .on('restart', function () {
             console.log('App restarted by nodemon!')
@@ -55,7 +51,7 @@ gulp.task('watch', function() {
 });
 
 // Dev start
-gulp.task('default', ['libs', 'jade_client_compilation', 'scripts', 'watch', 'run']);
+gulp.task('default', ['sass', 'libs', 'jade_client_compilation', 'scripts', 'watch', 'dev']);
 
 //Jade client templates binding
 function modify() {
